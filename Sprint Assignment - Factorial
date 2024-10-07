@@ -1,0 +1,14 @@
+3 start
+num:1 fact:1
+start:3 m<n
+op:1 mul:1 c:1 one:1 zero:0 stop:9
+m<n:5 mul num c=m
+9
+c=m:5 mul c updt
+1 fact op fact
+1 c one c
+3 c=m
+updt:1 mul one mul
+7 one c
+7 fact op
+3 m<n
