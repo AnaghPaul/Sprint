@@ -1,0 +1,14 @@
+3 start
+num:82 res:0
+start:3 c=r
+root:0 prod:0 c:0 one:1 zero:0 stop:9
+c=r:4 c root p<=n
+mul:1 prod root prod
+1 c one c
+3 c=r
+p<=n:5 num prod stop
+updt:7 root res
+1 root one root
+7 zero c
+7 zero prod
+3 c=r
