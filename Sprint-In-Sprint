@@ -1,0 +1,221 @@
+0 end end
+0 start pointer
+7 start instr
+sprint:4 stop instr stop_i
+4 jmp instr jmp_i
+4 add instr add_i
+4 sub instr sub_i
+4 copy instr copy_i
+4 jmp_eql instr jmp_eql_i
+4 jmp_less instr jmp_less_i
+4 put instr put_i
+4 read instr read_i
+4 mul instr mul_i
+4 div instr div_i
+
+0 1 bomb 9
+bomb:0
+
+jmp:3 
+add:1 
+sub:2 
+jmp_eql:4 
+jmp_less:5 
+copy:7
+put:0
+read:6
+mul:10
+div:11
+stop:9
+pointer:0
+offset:0
+instr:0
+op1:0
+op2:0
+result:0
+prod:0
+zero:0
+one:1
+two:2
+three:3
+four:4
+count:0
+times:0
+negative:0
+
+jmp_i:1 end addr addr
+1 pointer one pointer
+7 pointer addr
+1 addr:0 end jump_cell
+
+go_to:7 jump_cell pointer
+7 jump_cell:0 instr
+3 sprint
+
+stop_i:3 stop
+
+add_i:1 pointer one sum_op1_addr3
+1 pointer two sum_op2_addr3
+7 sum_op1_addr3:0 sum_op1_addr2:sum_op1_addr2
+7 sum_op2_addr3:0 sum_op2_addr2:sum_op2_addr2
+1 end sum_op1_addr2 sum_op1_addr
+1 end sum_op2_addr2 sum_op2_addr
+1 sum_op1_addr:0 sum_op2_addr:0 result
+
+1 pointer three sum_addr
+7 sum_addr:0 offset
+1 end offset put_sum
+7 result put_sum:0
+1 pointer four pointer
+7 pointer next_add
+7 next_add:0 instr
+0 sum_op1_addr2 sum_op1_addr2
+0 sum_op2_addr2 sum_op2_addr2
+3 sprint
+
+sub_i:1 pointer one diff_op1_addr3
+1 pointer two diff_op2_addr3
+7 diff_op1_addr3:0 diff_op1_addr2:diff_op1_addr2
+7 diff_op2_addr3:0 diff_op2_addr2:diff_op2_addr2
+1 end diff_op1_addr2 diff_op1_addr
+1 end diff_op2_addr2 diff_op2_addr
+2 diff_op1_addr:0 diff_op2_addr:0 result
+
+1 pointer three diff_addr
+7 diff_addr:0 offset
+1 end offset put_diff
+7 result put_diff:0
+1 pointer four pointer
+7 pointer next_sub
+7 next_sub:0 instr
+0 diff_op1_addr2 diff_op1_addr2
+0 diff_op2_addr2 diff_op2_addr2
+3 sprint
+
+
+copy_i:1 pointer one valfrm_addr3
+7 valfrm_addr3:0 valfrm_addr2:valfrm_addr2
+1 end valfrm_addr2 valfrm_addr
+
+1 pointer two valto_addr
+7 valto_addr:0 offset
+1 end offset valto
+7 valfrm_addr:0 valto:0
+1 pointer three pointer
+7 pointer next_copy
+7 next_copy:0 instr
+0 valfrm_addr2 valfrm_addr2
+3 sprint
+
+jmp_eql_i:1 pointer one eq_op1_addr3
+1 pointer two eq_op2_addr3
+7 eq_op1_addr3:0 eq_op1_addr2:eq_op1_addr2
+7 eq_op2_addr3:0 eq_op2_addr2:eq_op2_addr2
+1 end eq_op1_addr2 eq_op1_addr
+1 end eq_op2_addr2 eq_op2_addr
+4 eq_op1_addr:0 eq_op2_addr:0 jump_eq
+1 pointer four pointer
+7 pointer next_jmp_eql
+7 next_jmp_eql:0 instr
+0 eq_op1_addr2 eq_op1_addr2
+0 eq_op2_addr2 eq_op2_addr2
+3 sprint
+
+jump_eq:1 end addr_eq addr_eq
+1 pointer three pointer
+7 pointer addr_eq
+1 addr_eq:0 end jump_eq_cell
+
+go_to_eq:7 jump_eq_cell pointer
+7 jump_eq_cell:0 instr
+3 sprint
+
+jmp_less_i:1 pointer one less_op1_addr3
+1 pointer two less_op2_addr3
+7 less_op1_addr3:0 less_op1_addr2:less_op1_addr2
+7 less_op2_addr3:0 less_op2_addr2:less_op2_addr2
+1 end less_op1_addr2 less_op1_addr
+1 end less_op2_addr2 less_op2_addr
+5 less_op1_addr:0 less_op2_addr:0 jump_less
+1 pointer four pointer
+7 pointer next_jmp_less
+7 next_jmp_less:0 instr
+0 less_op1_addr2 less_op1_addr2
+0 less_op2_addr2 less_op2_addr2
+3 sprint
+
+jump_less:1 end addr_less addr_less
+1 pointer three pointer
+7 pointer addr_less
+1 addr_less:0 end jump_less_cell
+
+go_to_less:7 jump_less_cell pointer
+7 jump_less_cell:0 instr
+3 sprint
+
+put_i:1 pointer one from_val_addr
+1 pointer two to_val_addr3
+7 to_val_addr3:0 to_val_addr2:to_val_addr2
+1 end to_val_addr2 to_val_addr
+7 from_val_addr:0 to_val_addr:0
+1 pointer three pointer
+7 pointer next_put
+7 next_put:0 instr
+0 to_val_addr2 to_val_addr2
+3 sprint
+
+read_i:1 pointer one read_addr2
+1 end read_addr2:0 read_addr
+6 read_value:read_value 
+7 read_value read_addr:read_addr
+1 pointer two pointer
+7 pointer next_read
+7 next_read:0 instr
+0 read_addr read_addr
+0 read_value read_value
+3 sprint
+
+mul_i:1 pointer one prod_op1_addr3
+1 pointer two prod_op2_addr3
+7 prod_op1_addr3:0 prod_op1_addr2:prod_op1_addr2
+7 prod_op2_addr3:0 prod_op2_addr2:prod_op2_addr2
+1 end prod_op1_addr2 prod_op1_addr
+1 end prod_op2_addr2 prod_op2_addr
+7 prod_op1_addr:0 times
+5 times zero neg_prod
+mul_check:4 count times mul_end
+
+mul_add:1 prod_op2_addr:prod_op2_addr prod prod
+1 count one count
+3 mul_check
+
+mul_end:1 pointer three prod_addr
+7 prod_addr:0 offset
+1 end offset put_prod
+4 one negative make_neg
+prod_put:7 prod put_prod:0
+1 pointer four pointer
+7 pointer next_prod
+7 next_prod:0 instr
+0 prod_op1_addr2 prod_op1_addr2
+0 prod_op2_addr2 prod_op2_addr2
+0 prod_op2_addr prod_op2_addr
+0 0 count
+0 0 times
+0 0 prod
+3 sprint
+
+neg_prod:7 times count
+0 0 times
+0 1 negative
+3 mul_check
+
+make_neg:2 zero prod prod
+0 0 negative
+3 prod_put
+
+
+div_i:0
+
+end:0
+start:10 12 13 10 10 14 15 11 9 0 0 -11 -7 -10 -8 
