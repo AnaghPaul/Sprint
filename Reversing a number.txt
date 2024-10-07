@@ -1,0 +1,29 @@
+3 5
+num:123
+rev:0
+3 start
+c:0
+rem:0
+quo:0
+oprnd:0
+ten:10
+one:1
+zero:0
+start:7 num rem
+div:5 rem ten updt
+2 rem ten rem
+1 quo one quo
+3 div
+updt:7 rev oprnd
+7 zero rev
+mul:4 c ten check
+1 rev oprnd rev
+1 c one c
+3 mul
+check:1 rev rem rev
+4 zero quo recheck
+9
+recheck:7 quo rem
+7 zero c
+7 zero quo
+3 div
