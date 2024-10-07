@@ -1,0 +1,31 @@
+3 5
+first:90
+length:7
+3 start
+temp1:0
+temp2:0
+rem:0
+one:1
+two:2
+stop:9
+start:7 length rem
+2 first one front
+1 front length back
+1 front one front
+check1:5 one rem check2
+3 stop
+check2:5 front back swap
+3 stop
+swap:7 front f
+7 back b
+7 front:0 temp1
+7 back:0 temp2
+7 temp2 f:0
+7 temp1 b:0
+2 rem two rem
+1 front one front
+2 back one back
+3 check1
+0 0 0 0 0 0 0 0 0 0 0
+list:1 2 3 4 5 6 7 1 2 3 4 5 6 7
+
