@@ -1,0 +1,19 @@
+3 5
+first_ele_loc:100
+n:15
+3 start
+first:0
+second:1
+nth:0
+count:0
+one:1
+start:7 first_ele_loc loc
+check:5 count n put_term
+9
+put_term:7 first nth
+1 first second second
+2 second nth first
+1 count one count
+7 nth loc:loc
+1 loc one loc
+3 check
